@@ -2,9 +2,9 @@
 
 
 ```r
-fp = knitr::fig_path()
-fp = dirname(fp)
-fp = paste0("images/", fp, "/")
+fp <- knitr::fig_path()
+fp <- dirname(fp)
+fp <- paste0("images/", fp, "/")
 knitr::opts_chunk$set(fig.path = fp)
 ```
 

@@ -10,4 +10,8 @@
 spell_check_results.tsv
 .RData
 .httr-oauth
+<<<<<<< HEAD
 try_common.R
+=======
+docker/git_token.txt
+>>>>>>> upstream/main

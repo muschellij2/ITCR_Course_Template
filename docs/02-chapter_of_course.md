@@ -89,6 +89,7 @@ In text, we can put citations like this @bookdown2016.
 
 Here's a silly example which may mess up references.
 
+
 ```r
 library(oro.nifti)
 ```
@@ -98,7 +99,7 @@ library(oro.nifti)
 ```
 
 ```r
-img = oro.nifti::nifti()
+img <- oro.nifti::nifti()
 img@.Data
 ```
 
@@ -127,7 +128,7 @@ devtools::session_info()
 ##  collate  en_US.UTF-8                 
 ##  ctype    en_US.UTF-8                 
 ##  tz       America/New_York            
-##  date     2021-05-03                  
+##  date     2021-05-04                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────
 ##  package     * version    date       lib source                            

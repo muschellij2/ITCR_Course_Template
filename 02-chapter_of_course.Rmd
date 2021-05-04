@@ -71,9 +71,10 @@ In text, we can put citations like this @bookdown2016.
 
 
 Here's a silly example which may mess up references.
+
 ```{r}
 library(oro.nifti)
-img = oro.nifti::nifti()
+img <- oro.nifti::nifti()
 img@.Data
 ```
 

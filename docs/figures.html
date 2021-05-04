@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Figures | about</title>
+  <title>Chapter4 Figures | about</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Figures | about" />
+  <meta property="og:title" content="Chapter4 Figures | about" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Figures | about" />
+  <meta name="twitter:title" content="Chapter4 Figures | about" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Author Name" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -175,24 +175,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="figures" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Figures</h1>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="figures.html#cb28-1" aria-hidden="true"></a>fp =<span class="st"> </span>knitr<span class="op">::</span><span class="kw">fig_path</span>()</span>
-<span id="cb28-2"><a href="figures.html#cb28-2" aria-hidden="true"></a>fp =<span class="st"> </span><span class="kw">dirname</span>(fp)</span>
-<span id="cb28-3"><a href="figures.html#cb28-3" aria-hidden="true"></a>fp =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;images/&quot;</span>, fp, <span class="st">&quot;/&quot;</span>)</span>
-<span id="cb28-4"><a href="figures.html#cb28-4" aria-hidden="true"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;figpath is &quot;</span>, fp))</span></code></pre></div>
-<pre><code>## [1] &quot;figpath is images/04-figures_files/figure-html/&quot;</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="figures.html#cb30-1" aria-hidden="true"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.path =</span> fp)</span></code></pre></div>
+<h1><span class="header-section-number">Chapter4</span> Figures</h1>
 <div id="make-a-plot" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Make a plot</h2>
 <p>This is the same code as in chapter 2, but here we can show how setting <code>knitr</code> chunks helps us tidy stuff up.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="figures.html#cb31-1" aria-hidden="true"></a><span class="kw">library</span>(here)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="figures.html#cb28-1" aria-hidden="true"></a><span class="kw">library</span>(here)</span></code></pre></div>
 <pre><code>## here() starts at /Users/johnmuschelli/Dropbox/Projects/DaSL_Course_Template_Bookdown</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="figures.html#cb33-1" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb33-2"><a href="figures.html#cb33-2" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span></code></pre></div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="figures.html#cb34-1" aria-hidden="true"></a>iris <span class="op">%&gt;%</span></span>
-<span id="cb34-2"><a href="figures.html#cb34-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
-<span id="cb34-3"><a href="figures.html#cb34-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb34-4"><a href="figures.html#cb34-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="figures.html#cb30-1" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb30-2"><a href="figures.html#cb30-2" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="figures.html#cb31-1" aria-hidden="true"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb31-2"><a href="figures.html#cb31-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(Sepal.Length, Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
+<span id="cb31-3"><a href="figures.html#cb31-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb31-4"><a href="figures.html#cb31-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
 <p><img src="images/04-figures_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 
 </div>

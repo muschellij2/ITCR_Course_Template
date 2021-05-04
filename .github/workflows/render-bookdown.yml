@@ -27,12 +27,7 @@ jobs:
           # get the full repo
           fetch-depth: 0
           # use github PAT
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: test keys
-        run: |
-          echo ${{ secrets.GOOGLE_SLIDE_ID }}
-          echo ${GITHUB_REPOSITORY}
+          token: ${{ secrets.GIT_TOKEN }}
 
       # Login to Dockerhub
       - name: Login to DockerHub
@@ -45,8 +40,11 @@ jobs:
       - name: Set up Docker Build
         uses: docker/setup-buildx-action@v1
 
-      # Build the Docker image
-      - name: Build and Load Docker image
+      - name: Get Token
+        run: echo ${{ secrets.GIT_TOKEN }} > docker/git_token.txt
+
+      # Build docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
           push: false
@@ -54,6 +52,10 @@ jobs:
           context: docker
           file: docker/Dockerfile
           tags: jhudsl/course_template
+
+      # Push the Docker image
+      - name: Push Docker image
+        run: docker push jhudsl/course_template
 
       # Run bookdown rendering
       - name: Run bookdown render
@@ -76,24 +78,26 @@ jobs:
         run: |
           docker run \
           --mount type=bind,target=/home/rstudio,source=$PWD \
-          jhudsl/course_template \
+          jhudsl/course_template:latest \
           Rscript --vanilla scripts/google_slides_image_linker.R \
             --slides_id ${{ secrets.GOOGLE_SLIDE_ID }} \
             --image_loc _bookdown_files \
             --image_key_dir resources \
             --git_repo ${GITHUB_REPOSITORY} \
             --git_branch ${GITHUB_REF#refs/heads/} \
-            --token ${{ secrets.GOOGLE_SLIDE_TOKEN }}
+            --access_token ${{ secrets.GOOGLE_SLIDE_TOKEN }}
+            --refresh_token ${{ secrets.GOOGLE_SLIDE_REFRESH_TOKEN }}
 
       # Refresh google slide code images
       - name: Download slides
         run: |
           docker run \
           --mount type=bind,target=/home/rstudio,source=$PWD \
-          jhudsl/course_template \
+          jhudsl/course_template:latest \
           Rscript --vanilla scripts/google_slide_png_downloader.R \
             --slides_id ${{ secrets.GOOGLE_SLIDE_ID }} \
-            --token ${{ secrets.GOOGLE_SLIDE_TOKEN }}
+            --access_token ${{ secrets.GOOGLE_SLIDE_TOKEN }}
+            --refresh_token ${{ secrets.GOOGLE_SLIDE_REFRESH_TOKEN }}
 
 
       # Commit the google slide images just downloaded
@@ -103,7 +107,3 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add -A
           git commit -m 'Downloaded Google Slide Images' || echo "No changes to commit"
-
-      # Push the Docker image
-      - name: Push Docker image
-        run: docker push jhudsl/course_template
