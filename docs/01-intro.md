@@ -6,13 +6,15 @@ biblio-style: apalike
 link-citations: yes
 ---
 
-# Introduction 
+
+
+# Introduction
 
 ## Motivation
-This course will cover 
+This course will cover
 
 **Target Audience:**  
-The course is intended for 
+The course is intended for
 
 **Curriculum:**  
 The curriculum will cover
